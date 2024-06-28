@@ -30,7 +30,7 @@ function updateAge(element) {
 	if (element === true) return age; // !!
 	
 	if (element) return (element.innerText = age);
-	bio_elem.innerHTML = `a Russian ${uaflag.outerHTML} <span id="age">${age}</span> y.o.`;
+	bio_elem.innerHTML = `Russian ${uaflag.outerHTML} <span id="age">${age}</span> y.o.`;
 	uaflag.remove()
 }
 try { updateAge(); } catch (e) { 
