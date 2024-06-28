@@ -79,7 +79,7 @@ tg_btns.style.display = ""; // show if js enabled
 
 
 tg_btn.addEventListener("click", (e) => {
-	if (!tg_btn_arrow.matches(":hover, :focus")) return window.open(`https://t.me/paketmeqa`);
+	if (!tg_btn_arrow.matches(":hover, :focus")) return window.open(`https://t.me/pocobio`);
 	absorbEvent(e);
 	if /* close the fold */ (tg_btns.getAttribute("closed") === "false") {
         tg_btn_arrow.style.transform = "rotate(0turn)";
