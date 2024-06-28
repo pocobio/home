@@ -93,8 +93,8 @@ h3#js_warning {
 }
 button {
 	background: none transparent;
-	background-color: #4400ff22;
-	border: #4400ff solid 1px;
+	background-color: #e0a40022;
+	border: #e0a500 solid 1px;
 	border-radius: 0.5rem;
 }
 button:hover {
