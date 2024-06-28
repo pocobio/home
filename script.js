@@ -26,7 +26,7 @@ const bio_elem = document.querySelector("h3#bio"),
     uaflag = document.querySelector("span#ua_flag");
 
 function updateAge(element) {
-	const age = ~~((new Date() - new Date("2011-01-13T08:25:00+0200")) / (1000 * 60 * 60 * 24 * 365.25));
+	const age = ~~((new Date() - new Date("2011-01-26T08:25:00+0200")) / (1000 * 60 * 60 * 24 * 365.25));
 	if (element === true) return age; // !!
 	
 	if (element) return (element.innerText = age);
