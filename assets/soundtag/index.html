@@ -113,25 +113,18 @@
     </style>
 </head>
 <body>
-    <div class="container" id="errorMessage">
-        <div class="error-icon">⚠</div>
-        <h1>Произошла неизвестная ошибка</h1>
-        <button class="retry-button" id="retryButton">Попробовать ещё раз</button>
-    </div>
 
     <div class="container hidden" id="soundPlaying">
         <img src="assets/ston.png" alt="Логотип бренда" class="logo" loading="lazy" draggable="false" oncontextmenu="return false;">
         <button class="fake-mute-button" id="muteButton">🔇 Заглушить</button>
     </div>
 
-    <a href="https://t.me/sndtag" class="watermark" id="watermark" target="_blank">@sndtag</a>
+    <a href="https://t.me/pixelgang" class="watermark" id="watermark" target="_blank">@pixelgang</a>
 
     <audio id="funSound" src="assets/ston.mp3" loop=""></audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const errorMessage = document.getElementById('errorMessage');
-            const retryButton = document.getElementById('retryButton');
             const soundPlaying = document.getElementById('soundPlaying');
             const sound = document.getElementById('funSound');
             const watermark = document.getElementById('watermark');
@@ -140,26 +133,23 @@
             let muteClicks = 0;
 
             function playSound() {
-                sound.volume = 1.0;
-                sound.play()
-                    .then(() => {
-                        errorMessage.style.display = 'none';
-                        soundPlaying.style.display = 'flex';
-                        watermark.style.display = 'block'; // Показать водяной знак
-                    })
-                    .catch((e) => {
-                        console.error('Ошибка воспроизведения звука:', e);
-                        alert('Попробуйте снова.');
-                    });
+            sound.volume = 1.0;
+            sound.play()
+            .then(() => {
+            soundPlaying.style.display = 'flex';
+            watermark.style.display = 'block';
+            })
+            .catch((e) => {
+            console.error('Ошибка воспроизведения звука:', e);
+            });
             }
-
-            retryButton.addEventListener('click', playSound);
+            
             document.body.addEventListener('click', playSound, { once: true });
 
             muteButton.addEventListener('click', function() {
                 muteClicks++;
                 if (muteClicks >= 3) {
-                    window.location.href = "https://t.me/sndtag";
+                    window.location.href = "https://t.me/pixelgang";
                 }
             });
         });
