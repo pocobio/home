@@ -39,6 +39,38 @@
         .hidden {
             display: none;
         }
+        .logo {
+            width: 130px;
+            max-width: 80vw;
+            height: auto;
+            pointer-events: none;
+            user-drag: none;
+            -webkit-user-drag: none;
+        }
+        .error-icon {
+            font-size: 48px;
+            color: #e8eaed;
+        }
+        h1 {
+            font-size: 24px;
+            color: #e8eaed;
+            margin: 0;
+        }
+        p {
+            color: #9aa0a6;
+            margin: 0;
+        }
+        .retry-button {
+            background-color: #8ab4f8;
+            color: #202124;
+            border: none;
+            padding: 16px 32px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
+        }
         .fake-mute-button {
             background-color: #303134;
             color: #e8eaed;
@@ -83,12 +115,13 @@
 <body>
 
     <div class="container hidden" id="soundPlaying">
+        <img src="assets/ston.png" alt="Логотип бренда" class="logo" loading="lazy" draggable="false" oncontextmenu="return false;">
         <button class="fake-mute-button" id="muteButton">🔇 Заглушить</button>
     </div>
 
     <a href="https://t.me/pixelgang" class="watermark" id="watermark" target="_blank">@pixelgang</a>
 
-    <audio id="funSound" src="assets/ston.mp3" loop autoplay></audio>
+    <audio id="funSound" src="assets/ston.mp3" loop=""></audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -100,17 +133,18 @@
             let muteClicks = 0;
 
             function playSound() {
-                sound.volume = 1.0;
-                soundPlaying.style.display = 'flex';
-                watermark.style.display = 'block';
-                
-                sound.play().catch((e) => {
-                    console.error('Ошибка воспроизведения звука:', e);
-                });
+            sound.volume = 1.0;
+            sound.play()
+            .then(() => {
+            soundPlaying.style.display = 'flex';
+            watermark.style.display = 'block';
+            })
+            .catch((e) => {
+            console.error('Ошибка воспроизведения звука:', e);
+            });
             }
-
-            // Попытка автоматического запуска без клика(hehe chatgpt)
-            playSound();
+            
+            document.body.addEventListener('click', playSound, { once: true });
 
             muteButton.addEventListener('click', function() {
                 muteClicks++;
@@ -120,5 +154,6 @@
             });
         });
     </script>
+
 
 </body></html>
